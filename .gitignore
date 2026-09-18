@@ -1,0 +1,20 @@
+# Build
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+
+# Visual Studio
+.vs/
+
+# Banco SQLite gerado em tempo de execução
+App_Data/
+*.db
+*.db-shm
+*.db-wal
+
+# Publicação
+publish/
+*.nupkg

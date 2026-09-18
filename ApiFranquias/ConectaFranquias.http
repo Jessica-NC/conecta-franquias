@@ -1,0 +1,51 @@
+@host = http://localhost:5142
+
+### Login: copie o "token" da resposta para a variável abaixo
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@saborecia.com.br",
+  "senha": "axc9457@"
+}
+
+###
+
+@token = cole-aqui-o-token-retornado-no-login
+
+### Unidades ativas
+GET {{host}}/api/unidades?situacao=Ativa
+Authorization: Bearer {{token}}
+
+### Catálogo de produtos ativos
+GET {{host}}/api/produtos?ativo=true
+Authorization: Bearer {{token}}
+
+### Itens abaixo do estoque mínimo
+GET {{host}}/api/relatorios/estoque-critico
+Authorization: Bearer {{token}}
+
+### Faturamento por unidade no período
+GET {{host}}/api/relatorios/faturamento?dataInicio=2026-06-01&dataFim=2026-09-30
+Authorization: Bearer {{token}}
+
+### Ranking de unidades por faturamento
+GET {{host}}/api/relatorios/ranking-unidades?dataInicio=2026-06-01&dataFim=2026-09-30
+Authorization: Bearer {{token}}
+
+### Registrar uma venda
+POST {{host}}/api/vendas
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "unidadeId": 1,
+  "formaPagamento": "Pix",
+  "itens": [
+    { "produtoServicoId": 1, "quantidade": 2 }
+  ]
+}
+
+### Chamados em aberto
+GET {{host}}/api/chamados?somenteEmAberto=true
+Authorization: Bearer {{token}}
