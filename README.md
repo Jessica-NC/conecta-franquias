@@ -35,11 +35,11 @@ dotnet restore
 dotnet run
 ```
 
-Ao subir, a API fica disponível em `http://localhost:5142` e a documentação
+Ao subir, a API fica disponível em `http://localhost:5000` e a documentação
 interativa (Swagger) em:
 
 ```
-http://localhost:5142/swagger
+http://localhost:5000/swagger
 ```
 
 ## Principais regras de negócio
